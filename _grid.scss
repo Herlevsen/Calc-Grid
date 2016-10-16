@@ -1,0 +1,28 @@
+$defaultGridGutter:    20px;
+$defaultColumnsPerRow: 12;
+$containerWidth:       1200px;
+$containerPadding:     20px;
+
+@mixin clearfix() {
+	overflow: auto;
+}
+
+@mixin outerContainer($width: $containerWidth, $padding: $containerPadding) {
+	max-width: $width;
+	margin-left: auto;
+	margin-right: auto;
+	padding: $padding;
+}
+
+@mixin colContainer($gutter: $defaultGridGutter) {
+	margin-left: -$gutter / 2;
+	margin-right: -$gutter / 2;
+	overflow: auto;
+}
+
+@mixin cols($span, $gutter: $defaultGridGutter) {
+	float: left;
+	width: calc( #{$span * 100}% - #{$gutter} );
+	margin-left: $gutter / 2;
+	margin-right: $gutter / 2;
+}

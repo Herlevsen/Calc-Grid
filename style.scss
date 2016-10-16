@@ -1,0 +1,83 @@
+@import "grid.scss";
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Segoe UI','Helvetica Neue',Segoe,Helvetica,Arial,FreeSans,sans-serif;
+}
+
+.container {
+	@include outerContainer()
+}
+
+.item-container {
+	margin-bottom: 80px;
+	@include colContainer;
+}
+
+.item {
+	background: #666;
+	color: #fff;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+#example-1 {
+	.a {
+		margin-bottom: 20px;
+		@include cols(1/4);
+	}
+}
+
+#example-2 {
+	.a {
+		@include cols(1/6);
+	}
+
+	.b {
+		@include cols(3/6);
+	}
+
+	.c {
+		@include cols(2/6);
+	}
+}
+
+#example-3 {
+	.a {
+		@include cols(1/2);
+
+		> section {
+			@include colContainer;
+		}
+
+		.a-a, .a-b, .a-c {
+			background: #999;
+			padding: 20px;
+		}
+
+		.a-a {
+			@include cols(1/3);
+		}
+
+		.a-b {
+			@include cols(1/3);
+		}
+
+		.a-c {
+			@include cols(2/3);
+		}
+	}
+}
+
+#example-4 {
+	@include colContainer(100px);
+
+	.a {
+		@include cols(1/3, 100px);
+	}
+}
